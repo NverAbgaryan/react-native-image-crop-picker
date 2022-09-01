@@ -897,17 +897,18 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
         [[self getRootVC] presentViewController:cropVC animated:FALSE completion:nil];
     });
 }
-//#pragma mark - TOCropViewController Delegate
-//- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
-//    [self imageCropViewController:cropViewController didCropImage:image usingCropRect:cropRect];
-//}
-//
-//- (void)cropViewController:(TOCropViewController *)cropViewController didFinishCancelled:(BOOL)cancelled {
-//    [self dismissCropper:cropViewController selectionDone:NO completion:[self waitAnimationEnd:^{
-//        if (self.currentSelectionMode == CROPPING) {
-//            self.reject(ERROR_PICKER_CANCEL_KEY, ERROR_PICKER_CANCEL_MSG, nil);
-//        }
-//    }]];
-//}
+
+#pragma mark - TOCropViewController Delegate
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
+    [self imageCropViewController:cropViewController didCropImage:image usingCropRect:cropRect];
+}
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didFinishCancelled:(BOOL)cancelled {
+    [self dismissCropper:cropViewController selectionDone:NO completion:[self waitAnimationEnd:^{
+        if (self.currentSelectionMode == CROPPING) {
+            self.reject(ERROR_PICKER_CANCEL_KEY, ERROR_PICKER_CANCEL_MSG, nil);
+        }
+    }]];
+}
 
 @end
