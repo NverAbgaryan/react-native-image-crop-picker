@@ -256,6 +256,14 @@ declare module "react-native-image-crop-picker" {
         cropperCancelText?: string;
 
         /**
+         * Enable or disable cropper rotate buttons.
+         *
+         * @platform iOS only
+         * @default false
+         */
+        cropperRotateButtonsHidden?: boolean
+
+        /**
          * Choose button text.
          *
          * @default 'Choose'
