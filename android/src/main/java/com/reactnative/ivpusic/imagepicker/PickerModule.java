@@ -389,8 +389,6 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
     public void openPicker(final ReadableMap options, final Promise promise) {
         final Activity activity = getCurrentActivity();
 
-        android.widget.Toast.makeText(activity, "Hello axper jan", Toast.LENGTH_LONG).show();
-
         if (activity == null) {
             promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist");
             return;
